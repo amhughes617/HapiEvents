@@ -1,0 +1,17 @@
+{
+  "name": "hapi-events",
+  "version": "1.0.0",
+  "description": "practice app using react/redux front-end with hapi server",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Hughes",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "hapi": "^13.5.0",
+    "waterline": "^0.12.2",
+    "webpack": "^1.13.1"
+  }
+}
