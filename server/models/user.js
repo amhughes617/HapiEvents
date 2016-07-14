@@ -19,18 +19,13 @@ User.prototype.attend = function(event) {
 };
 
 User.prototype.hashPassword = function() {
-  bcrypt.genSalt(10, function(err, salt) {
-      if (err) console.log(err);
-      bcrypt.hash(this.password, salt, function(err, hash) {
-      if (err) console.log(err);        
-      this.password = hash;
-      });
-    });
+  let hash = bcrypt.hashSync(this.password, 10)
+  this.password = hash;
 }
-Users.prototype.checkPass = function(pass) {
+User.prototype.checkPass = function(pass) {
   return bcrypt.compare(pass, this.password);
 }
 
 User.prototype.getEvents = function() {
-  return.this.events;
+  return this.events;
 }

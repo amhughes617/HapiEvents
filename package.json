@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.7",
+    "boom": "^3.2.2",
     "hapi": "^13.5.0",
     "waterline": "^0.12.2",
     "webpack": "^1.13.1"

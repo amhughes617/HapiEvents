@@ -4,7 +4,10 @@ const http = require('http');
 const hapi = require('hapi');
 const boom = require('boom');
 
-const Events = require('./events');
+const Events = require('./models/events');
+const Users = require('./models/users');
+const Event = require('./models/event');
+const User = require('./models/user');
 
 let events = new Events();
 let users = new Users();
@@ -50,7 +53,7 @@ server.route({
 });
 
 server.route({
-  method: 'post',
+  method: 'POST',
   path: '/user/create',
   handler: function(req, res) {
     let user = new User(req.payload.username, req.payload.password);
@@ -60,8 +63,8 @@ server.route({
 });
 
 server.route({
-  method: 'login',
-  path: 'user/login',
+  method: 'POST',
+  path: '/user/login',
   handler: function(req, res) {
     let user = users.getByNames(req.payload.username);
     if (!user.checkPass(req.payload.password)) {

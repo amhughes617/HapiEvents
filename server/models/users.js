@@ -1,6 +1,5 @@
 'use strict'
 const bcrypt = require('bcrypt');
-const User = require('user');
 const fs = require('fs');
 
 module.exports = Users;
@@ -38,7 +37,7 @@ Users.prototype.getAll = function() {
 
 Users.prototype.load = function() {
   let that = this;
-  fs.readFile('data/users.json','utf8', function(err, contents) {
+  fs.readFile('server/data/users.json','utf8', function(err, contents) {
     if (err) {
       console.log(err);
     }
@@ -47,5 +46,5 @@ Users.prototype.load = function() {
 };
 
 Users.prototype.save = function() {
-  fs.writeFile('data/users.json', JSON.stringify(this.users));
+  fs.writeFile('server/data/users.json', JSON.stringify(this.users));
 }
